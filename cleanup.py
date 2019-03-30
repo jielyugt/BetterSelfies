@@ -1,4 +1,9 @@
 # Python script to divide the dataset into tag folders
+# ReadMe: delete all the existing folders under "Selfie-dataset/test" except "setsample", and run testSmallSampleIsSmiling()
+
+
+
+
 
 import shutil
 import os
@@ -20,6 +25,9 @@ def testSmallSampleIsSmiling():
     f = open("Selfie-dataset/selfie_dataset.txt","r")
     lines = f.readlines()
     f.close()
+
+    # count total
+    print("# photos:",len(lines))
     
     makeFolders("Selfie-dataset/test/")
 
@@ -43,18 +51,7 @@ def testSmallSampleIsSmiling():
             else:
                 shutil.copyfile(path, "Selfie-dataset/test/good_lighting/"+ atri[0] + ".jpg")
 
-            if float(atri[1]) > 4.5:
-                shutil.copyfile(path, "Selfie-dataset/test/good/" + atri[0] + ".jpg")
-            else:
-                shutil.copyfile(path, "Selfie-dataset/test/bad/" + atri[0] + ".jpg")
         
-
-
-
-
-
-
-
 
 
 
@@ -76,6 +73,5 @@ def makeFolders(path):
     os.mkdir(path + "not_frowning")
     os.mkdir(path + "good_lighting")
     os.mkdir(path + "bad_lighting")
-    os.mkdir(path + "good")
-    os.mkdir(path + "bad")
+
     
