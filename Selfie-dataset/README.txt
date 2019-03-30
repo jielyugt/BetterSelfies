@@ -8,7 +8,9 @@ selfie_dataset.txt provides the annotations and is structured as <image name> <p
 
 Attributes are as following:
 
-partial_faces is_female baby child teenager youth middle_age senior white black asian oval_face round_face heart_face smiling mouth_open frowning wearing_glasses wearing_sunglasses wearing_lipstick tongue_out duck_face black_hair blond_hair brown_hair red_hair curly_hair straight_hair braid_hair showing_cellphone using_earphone using_mirror braces wearing_hat harsh_lighting dim_lighting
+2:partial_faces 3:is_female 4:baby 5:child 6:teenager 7:youth 8:middle_age 9:senior 10:white 11:black 12:asian 13:oval_face 14:round_face 15:heart_face 16:smiling 17:mouth_open 18:frowning 19:wearing_glasses 20:wearing_sunglasses 21:wearing_lipstick 22:tongue_out 23:duck_face 24:black_hair 25:blond_hair 26:brown_hair 27:red_hair 28:curly_hair 29:straight_hair 30:braid_hair 31:showing_cellphone 32:using_earphone 33:using_mirror 34:braces 35:wearing_hat 36:harsh_lighting 37:dim_lighting
+
+p.s. number means the index
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -23,8 +25,12 @@ If you make use of the Selfie dataset please cite the following work:
   organization={ACM}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We can have:
-	is_smiling
-	not_smiling
-	(more to go)
+How we plan to divide the set:
+	is_smiling		 (smiling)
+	not_smiling		^(smiling)
+	is_ frowning		 (frowning)
+	not_frowning		^(frowning)
+	good_lighting		^(harsh_lighting V dim_lighting)
+	bad_lighting 		 (harsh_lighting V dim_lighting)
