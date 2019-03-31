@@ -29,7 +29,7 @@ def testSmallSampleIsSmiling():
     # count total
     print("# photos:",len(lines))
     
-    makeFolders("Selfie-dataset/test/")
+    makeFolders("Selfie-dataset/test/Training_Data/")
 
     for line in lines:
         atri = line.split()
@@ -37,19 +37,19 @@ def testSmallSampleIsSmiling():
         
         if fileExists(path):
             if atri[16] == "1":
-                shutil.copyfile(path, "Selfie-dataset/test/is_smiling/" + atri[0] + ".jpg")
+                shutil.copyfile(path, "Selfie-dataset/test/Training_Data/is_smiling/" + atri[0] + ".jpg")
             else:
-                shutil.copyfile(path, "Selfie-dataset/test/not_smiling/"+ atri[0] + ".jpg")
+                shutil.copyfile(path, "Selfie-dataset/test/Training_Data/not_smiling/"+ atri[0] + ".jpg")
 
             if atri[18] == "1":
-                shutil.copyfile(path, "Selfie-dataset/test/is_frowning/" + atri[0] + ".jpg")
+                shutil.copyfile(path, "Selfie-dataset/test/Training_Data/is_frowning/" + atri[0] + ".jpg")
             else:
-                shutil.copyfile(path, "Selfie-dataset/test/not_frowning/"+ atri[0] + ".jpg")
+                shutil.copyfile(path, "Selfie-dataset/test/Training_Data/not_frowning/"+ atri[0] + ".jpg")
 
             if atri[36] == "1" or atri[37] == "1":
-                shutil.copyfile(path, "Selfie-dataset/test/bad_lighting/" + atri[0] + ".jpg")
+                shutil.copyfile(path, "Selfie-dataset/test/Training_Data/bad_lighting/" + atri[0] + ".jpg")
             else:
-                shutil.copyfile(path, "Selfie-dataset/test/good_lighting/"+ atri[0] + ".jpg")
+                shutil.copyfile(path, "Selfie-dataset/test/Training_Data/good_lighting/"+ atri[0] + ".jpg")
 
         
 
@@ -67,6 +67,7 @@ def fileExists(filename):
 def makeFolders(path):
 
     # make new folders
+    os.mkdir('Selfie-dataset/test/Training_Data')
     os.mkdir(path + "is_smiling")
     os.mkdir(path + "not_smiling")
     os.mkdir(path + "is_frowning")
